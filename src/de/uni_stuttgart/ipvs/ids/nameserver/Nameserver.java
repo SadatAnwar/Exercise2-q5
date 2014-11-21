@@ -113,8 +113,15 @@ public class Nameserver {
 
 		// TODO: implement iterative lookup
 		// Start implementing here
-		
-		return "[NOT IMPLEMENTED YET]";
+		if(children.containsKey(name)){
+			System.out.println("name in children:"+name);
+			Nameserver thisChild = children.get(name);
+			int port=thisChild.getTcpPort();
+			String ipAdrs=thisChild.getAddress();
+			
+		return ipAdrs+":"+port;
+		}else
+			return "there is no server with this name";
 	}
 
 	// TODO: add additional methods if necessary...
